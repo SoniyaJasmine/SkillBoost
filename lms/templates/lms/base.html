@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}SkillBoost{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'lms/style.css' %}?v=20261109-nav">
+</head>
+<body>
+<header class="site-header">
+    <nav class="site-nav" aria-label="Main navigation">
+        <a class="site-brand" href="{% url 'course_list' %}" aria-label="SkillBoost home">
+            <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+                <rect x="1" y="1" width="38" height="38" rx="12" fill="currentColor"/>
+                <path d="M12 12.5c3.2-.9 6-.4 8 1.4 2-1.8 4.8-2.3 8-1.4v15c-3.2-.9-6-.4-8 1.4-2-1.8-4.8-2.3-8-1.4v-15Z" fill="none" stroke="#14213d" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                <path d="M20 14v14" fill="none" stroke="#14213d" stroke-linecap="round" stroke-width="2"/>
+                <path d="m25 8 1.2 2.8L29 12l-2.8 1.2L25 16l-1.2-2.8L21 12l2.8-1.2L25 8Z" fill="#fff"/>
+            </svg>
+            <span>Skill<span class="brand-accent">Boost</span></span>
+        </a>
+        <div class="site-nav-links">
+            <a href="{% url 'course_list' %}">Courses</a>
+            <a href="{% url 'recommend_courses' %}">Recommended for You</a>
+            <a class="nav-cta" href="{% url 'course_upload' %}">
+                <span aria-hidden="true">+</span> Upload a course
+            </a>
+        </div>
+    </nav>
+</header>
+{% block content %}{% endblock %}
+</body>
+</html>

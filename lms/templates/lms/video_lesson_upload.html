@@ -1,0 +1,15 @@
+{% extends "lms/base.html" %}
+
+{% block title %}Upload a lesson for {{ course.title }} | SkillBoost{% endblock %}
+
+{% block content %}
+<main>
+    <h1>Upload a video lesson</h1>
+    <p>Course: {{ course.title }}</p>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save lesson</button>
+    </form>
+</main>
+{% endblock %}

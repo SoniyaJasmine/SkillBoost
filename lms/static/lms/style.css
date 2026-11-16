@@ -1,0 +1,361 @@
+:root {
+    color-scheme: light;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #172033;
+    background: #f3f6fb;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-width: 320px;
+    line-height: 1.6;
+}
+
+.site-header {
+    position: sticky;
+    z-index: 10;
+    top: 0;
+    background: linear-gradient(110deg, #14213d 0%, #1b3156 100%);
+    color: #fff;
+    box-shadow: 0 8px 24px rgb(16 31 57 / 18%);
+}
+
+.site-header::after {
+    display: block;
+    height: 3px;
+    background: linear-gradient(90deg, #49d6bd, #8ee6d7 55%, #f4b740);
+    content: "";
+}
+
+.site-nav {
+    display: flex;
+    width: min(100% - 2.5rem, 1120px);
+    min-height: 64px;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.site-brand,
+.site-nav-links a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.site-brand {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: -0.045em;
+}
+
+.brand-mark {
+    display: block;
+    width: 30px;
+    height: 30px;
+    flex: 0 0 auto;
+    color: #49d6bd;
+    transition: transform 180ms ease;
+}
+
+.site-brand:hover .brand-mark {
+    transform: rotate(-5deg) scale(1.05);
+}
+
+.brand-accent {
+    color: #65dec9;
+}
+
+.site-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+}
+
+.site-nav-links a {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    padding: 0.55rem 1rem;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    transition: background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.site-nav-links a:hover {
+    background: rgb(255 255 255 / 10%);
+    color: #fff;
+}
+
+.site-nav-links .nav-cta {
+    gap: 0.45rem;
+    border-color: #49d6bd;
+    background: #49d6bd;
+    color: #10233b;
+}
+
+.site-nav-links .nav-cta:hover {
+    transform: translateY(-1px);
+    border-color: #78e6d4;
+    background: #78e6d4;
+    color: #10233b;
+}
+
+.nav-cta span {
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+.site-nav a:focus-visible {
+    outline-color: #f4b740;
+    outline-offset: 4px;
+}
+
+main {
+    width: min(100% - 2rem, 860px);
+    margin: 3rem auto;
+    padding: clamp(1.25rem, 4vw, 2.5rem);
+    background: #fff;
+    border: 1px solid #e1e7f0;
+    border-radius: 16px;
+    box-shadow: 0 12px 35px rgb(22 39 71 / 8%);
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1.25;
+    color: #14213d;
+}
+
+h1 {
+    margin-top: 0;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+}
+
+h2 {
+    margin-top: 2rem;
+}
+
+p {
+    color: #536078;
+}
+
+a {
+    color: #2459c4;
+    font-weight: 600;
+    text-underline-offset: 3px;
+}
+
+a:hover {
+    color: #173d91;
+}
+
+button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    margin: 0.5rem 0.5rem 0.5rem 0;
+    padding: 0.65rem 1.1rem;
+    border: 0;
+    border-radius: 8px;
+    background: #2459c4;
+    color: #fff;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 140ms ease, transform 140ms ease;
+}
+
+button:hover {
+    background: #173d91;
+    transform: translateY(-1px);
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid #f4b740;
+    outline-offset: 3px;
+}
+
+form p {
+    margin: 1.25rem 0;
+}
+
+form label {
+    display: inline-block;
+    margin-bottom: 0.35rem;
+    color: #26344d;
+    font-weight: 600;
+}
+
+input:not([type="radio"]),
+textarea {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    padding: 0.75rem 0.85rem;
+    border: 1px solid #cbd4e2;
+    border-radius: 8px;
+    background: #fff;
+    color: inherit;
+    font: inherit;
+}
+
+textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+ul {
+    padding-left: 1.25rem;
+}
+
+main > ul {
+    display: grid;
+    gap: 1rem;
+    padding: 0;
+    list-style: none;
+}
+
+main > ul > li,
+main > form,
+main > section {
+    margin: 1rem 0;
+    padding: 1.25rem;
+    border: 1px solid #e1e7f0;
+    border-radius: 12px;
+    background: #fbfcff;
+}
+
+main > ul > li h3,
+main > section h2 {
+    margin-top: 0;
+}
+
+fieldset {
+    margin: 1rem 0;
+    padding: 1rem 1.25rem;
+    border: 1px solid #d5deeb;
+    border-radius: 10px;
+}
+
+legend {
+    padding: 0 0.4rem;
+    color: #14213d;
+    font-weight: 700;
+}
+
+fieldset label {
+    display: block;
+    padding: 0.45rem 0;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+input[type="radio"] {
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.5rem;
+    accent-color: #2459c4;
+    vertical-align: -0.1rem;
+}
+
+[role="status"] {
+    padding: 0.85rem 1rem;
+    border: 1px solid #a7dfbd;
+    border-radius: 8px;
+    background: #effbf3;
+    color: #176638;
+    font-weight: 700;
+}
+
+.answer-correct {
+    color: #176638;
+    font-weight: 700;
+}
+
+.answer-selected {
+    color: #2459c4;
+    font-weight: 700;
+}
+
+@media (max-width: 560px) {
+    .site-nav {
+        width: min(100% - 1.5rem, 1120px);
+        min-height: 58px;
+        gap: 0.5rem;
+    }
+
+    .site-nav-links {
+        gap: 0.2rem;
+    }
+
+    .site-nav-links a {
+        padding: 0.45rem 0.65rem;
+        font-size: 0.875rem;
+    }
+
+    .site-brand {
+        gap: 0.4rem;
+        font-size: 1.05rem;
+    }
+
+    .brand-mark {
+        width: 26px;
+        height: 26px;
+    }
+
+    main {
+        width: min(100% - 1rem, 860px);
+        margin: 0.5rem auto;
+        padding: 1.25rem;
+        border-radius: 12px;
+    }
+}
+
+@media (max-width: 390px) {
+    .site-nav {
+        width: calc(100% - 1rem);
+        min-height: 0;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 0.65rem 0;
+        row-gap: 0.35rem;
+    }
+
+    .site-brand {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .site-nav-links {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}

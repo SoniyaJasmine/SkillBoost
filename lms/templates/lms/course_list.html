@@ -1,0 +1,47 @@
+{% extends "lms/base.html" %}
+
+{% block title %}Courses | SkillBoost{% endblock %}
+
+{% block content %}
+<main>
+    <h1>Explore courses</h1>
+    <p>Build your skills with lessons and quizzes.</p>
+    {% if request.user.is_authenticated %}
+        <section aria-labelledby="recommendations-heading">
+            <h2 id="recommendations-heading">Recommended for You</h2>
+            {% if recommendation_error %}
+                <p>{{ recommendation_error }}</p>
+            {% elif recommendations %}
+                <ul>
+                    {% for recommendation in recommendations %}
+                        <li>
+                            <h3>
+                                <a href="{% url 'course_detail' course_id=recommendation.course.pk %}">
+                                    {{ recommendation.title }}
+                                </a>
+                            </h3>
+                            <p>{{ recommendation.description }}</p>
+                            <p>Relevance score: {{ recommendation.relevance_score }}</p>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No course recommendations are available yet.</p>
+            {% endif %}
+        </section>
+    {% endif %}
+    {% if courses %}
+        <ul>
+            {% for course in courses %}
+                <li>
+                    <h2>{{ course.title }}</h2>
+                    <p>{{ course.description }}</p>
+                    <a href="{% url 'course_detail' course_id=course.pk %}">View course</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No courses are available yet. Upload a course to get started.</p>
+    {% endif %}
+</main>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "lms/base.html" %}
+
+{% block title %}Quiz results | SkillBoost{% endblock %}
+
+{% block content %}
+<main>
+    <h1>Quiz results</h1>
+    <p>Your score: {{ attempt.score }}</p>
+    {% if course_completed %}
+        <section aria-labelledby="course-completion-heading">
+            <h2 id="course-completion-heading">Course completed!</h2>
+            <p>Congratulations! You passed the quiz and completed this course.</p>
+            <a href="{% url 'generate_certificate' course_id=attempt.quiz.course.pk user_id=request.user.pk %}">
+                Download your certificate
+            </a>
+        </section>
+    {% endif %}
+
+    {% for item in question_results %}
+        <section>
+            <h2>{{ item.question.question_text }}</h2>
+            <p>
+                {% if item.is_correct %}
+                    Correct
+                {% else %}
+                    Incorrect
+                {% endif %}
+            </p>
+            <ul>
+                {% for answer in item.answers %}
+                    <li>
+                        <span class="{% if answer.pk == item.correct_answer_id %}answer-correct{% elif answer.pk == item.selected_answer_id %}answer-selected{% endif %}">
+                            {{ answer.answer_text }}
+                        </span>
+                        {% if answer.pk == item.selected_answer_id %}<span class="answer-selected">(Your answer)</span>{% endif %}
+                        {% if answer.pk == item.correct_answer_id %}<span class="answer-correct">(Correct answer)</span>{% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+    {% empty %}
+        <p>This quiz has no questions.</p>
+    {% endfor %}
+
+    {% if attempt.quiz.lesson_id %}
+        <a href="{% url 'video_lesson_detail' lesson_id=attempt.quiz.lesson_id %}">Back to lesson</a>
+    {% endif %}
+</main>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "lms/base.html" %}
+
+{% block title %}Course uploaded | SkillBoost{% endblock %}
+
+{% block content %}
+<main>
+    <h1>Course uploaded successfully</h1>
+    <a href="{% url 'course_upload' %}">Upload another course</a>
+</main>
+{% endblock %}
